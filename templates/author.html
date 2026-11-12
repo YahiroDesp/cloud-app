@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Об авторе</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="/" class="logo">Cloud<span>App</span></a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Главная</a></li>
+      <li><a href="/about.html">О сайте</a></li>
+      <li><a href="/contacts.html">Контакты</a></li>
+      <li><a href="/author.html">Об авторе</a></li>
+      <li><a href="/add">Добавить товар</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Страница автора</h1>
+    <p>Информация о разработчике данного веб-приложения и проекта.</p>
+  </section>
+
+  <div class="card" style="max-width: 600px; margin: 0 auto;">
+    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">
+      👨‍💻 Разработчик проекта
+    </h3>
+    <p style="font-size: 1.1rem; margin-bottom: 0.8rem;">
+      <strong>ФИО:</strong> Байбурин Марлен
+    </p>
+    <p style="font-size: 1.1rem; margin-bottom: 0.8rem;">
+      <strong>Учебная группа:</strong> ВТ-24б
+    </p>
+    <p style="font-size: 1.1rem; margin-bottom: 0.8rem;">
+      <strong>Специальность:</strong> Вычислительная техника и программное обеспечение
+    </p>
+    <p style="margin-top: 1.5rem; color: var(--text-muted);">
+      Проект разработан в рамках практической работы по изучению верстки веб-интерфейсов и контейнеризации приложений с использованием Docker и веб-сервера Nginx.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 HubApp. Все права защищены.</p>
+</footer>
+
+</body>
+</html>

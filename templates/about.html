@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О сайте</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">Cloud<span>App</span></a>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Главная</a></li>
+            <li><a href="/about.html">О сайте</a></li>
+            <li><a href="/contacts.html">Контакты</a></li>
+            <li><a href="/author.html">Об авторе</a></li>
+            <li><a href="/add">Добавить товар</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>О нашей платформе</h1>
+        <p>Создаём удобные инструменты для работы и коммуникации.</p>
+    </section>
+
+    <div class="card" style="max-width: 800px; margin: 0 auto 2rem;">
+        <h3>Наша миссия</h3>
+        <p style="margin-bottom: 1rem;">
+            Мы стремимся упростить взаимодействие с технологиями, предоставляя понятный интерфейс и удобный доступ к нужной информации без лишнего шума.
+        </p>
+        <p>
+            Проект постоянно развивается и пополняется новыми модулями и инструментами.
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Быстродействие</h3>
+            <p>Сайт оптимизирован для мгновенной загрузки на любых устройствах.</p>
+        </div>
+        <div class="card">
+            <h3>Удобство</h3>
+            <p>Продуманный интерфейс, не перегруженный лишними элементами.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 HubApp. Все права защищены.</p>
+</footer>
+
+</body>
+</html>

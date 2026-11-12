@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить товар</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="/" class="logo">Cloud<span>App</span></a>
+        <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/add" class="active">Добавить товар</a></li>
+            <li><a href="/about.html">О сайте</a></li>
+            <li><a href="/contacts.html">Контакты</a></li>
+            <li><a href="/author.html">Об авторе</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Добавление товара</h1>
+        <p>Заполните форму, чтобы добавить новый товар в базу данных PostgreSQL.</p>
+    </section>
+
+    <form class="contact-form" action="/add" method="POST" style="max-width: 500px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="name" style="display: block; margin-bottom: 8px; font-weight: bold;">Название товара</label>
+            <input type="text" id="name" name="name" placeholder="Например: Tablet Samsung" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="price" style="display: block; margin-bottom: 8px; font-weight: bold;">Цена (тг.)</label>
+            <input type="number" id="price" name="price" placeholder="Например: 150000" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <button type="submit" class="btn" style="width: 100%; padding: 12px; background: #2c3e50; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Добавить в каталог</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2026 HubApp. Все права защищены.</p>
+</footer>
+
+</body>
+</html>

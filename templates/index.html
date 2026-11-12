@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главный хаб</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="/" class="logo">Cloud<span>App</span></a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Главная</a></li>
+      <li><a href="/about.html">О сайте</a></li>
+      <li><a href="/contacts.html">Контакты</a></li>
+      <li><a href="/author.html">Об авторе</a></li>
+      <li><a href="/add">Добавить товар</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>CloudShop</h1>
+    <p>Список товаров из базы данных PostgreSQL</p>
+  </section>
+
+  <div class="grid">
+    <div class="card" style="grid-column: span 3;">
+      <h3>📦 Каталог товаров</h3>
+      <ul style="list-style-type: none; padding: 0; margin-top: 15px;">
+        {% for product in products %}
+        <li style="padding: 10px 0; border-bottom: 1px solid #eee; font-size: 18px;">
+          <strong>{{ product[0] }}.</strong> {{ product[1] }} — <strong>{{ product[2] }} тг.</strong>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 HubApp. Все права защищены.</p>
+</footer>
+
+</body>
+</html>

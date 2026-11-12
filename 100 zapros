@@ -1,0 +1,43 @@
+$url = "http://localhost:8080"
+$totalRequests = 100
+$times = @()
+$errorsCount = 0
+
+Write-Host "=== Запуск теста: $totalRequests запросов к $url ===" -ForegroundColor Cyan
+$globalStopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+
+for ($i = 1; $i -le $totalRequests; $i++) {
+    $sw = [System.Diagnostics.Stopwatch]::StartNew()
+    try {
+        $response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 5
+        $sw.Stop()
+        $times += $sw.ElapsedMilliseconds
+        # Вывод каждого 10-го запроса, чтобы не засорять терминал
+        if ($i % 10 -eq 0) {
+            Write-Host "Запрос $i/$totalRequests выполнен за $($sw.ElapsedMilliseconds) мс (Статус: $($response.StatusCode))" -ForegroundColor Green
+        }
+    } catch {
+        $sw.Stop()
+        $errorsCount++
+        Write-Host "Запрос $i/$totalRequests завершился ОШИБКОЙ: $_" -ForegroundColor Red
+    }
+}
+
+$globalStopwatch.Stop()
+
+# Подсчет статистики
+if ($times.Count -gt 0) {
+    $avgTime = ($times | Measure-Object -Average).Average
+    $maxTime = ($times | Measure-Object -Maximum).Maximum
+    $minTime = ($times | Measure-Object -Minimum).Minimum
+} else {
+    $avgTime = 0; $maxTime = 0; $minTime = 0
+}
+
+Write-Host "`--- Итоги теста ---" -ForegroundColor Cyan
+Write-Host "Всего времени: $($globalStopwatch.Elapsed.Seconds) сек." -ForegroundColor White
+Write-Host "Успешных запросов: $($times.Count)" -ForegroundColor Green
+Write-Host "Ошибок: $errorsCount" -ForegroundColor $(if ($errorsCount -gt 0) { "Red" } else { "Green" })
+Write-Host "Среднее время ответа: $([math]::Round($avgTime, 2)) мс" -ForegroundColor Yellow
+Write-Host "Минимальное время: $minTime мс" -ForegroundColor White
+Write-Host "Максимальное время: $maxTime мс" -ForegroundColor White
